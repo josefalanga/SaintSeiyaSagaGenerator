@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:52706",
+      "applicationUrl": "http://0.0.0.0:52706",
       "sslPort": 44344
     }
   },
@@ -18,9 +18,9 @@
     },
     "SeiyaSagaGen": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "applicationUrl": "http://0.0.0.0:19090",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
