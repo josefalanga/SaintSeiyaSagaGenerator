@@ -1,0 +1,105 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<h1 class="center text">Saint Seiya Epic Saga Generator</h1>
+
+<div class="center">    
+    <p class="text">            
+        @string.Join(" ",story)
+    </p>
+</div>
+
+@code {
+    Random random = new Random();
+
+    public List<String> story = new List<string>();
+
+    private SeiyaData seiyaData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        seiyaData = await Http.GetFromJsonAsync<SeiyaData>("sample-data/seiya.json");
+
+        var bigBadEvil = seiyaData.BigBadEvilGuy.RandomElement();
+
+        if (seiyaData.Caballeros.Exists(x => x == bigBadEvil)) seiyaData.Caballeros.Remove(bigBadEvil);
+
+        if (seiyaData.ElQueLosAyudaDeOnda.Exists(x => x == bigBadEvil)) seiyaData.ElQueLosAyudaDeOnda.Remove(bigBadEvil);
+
+        var saintCount = seiyaData.Caballeros.Count;
+
+        var listaDeCaballeros = string.Join(", ", seiyaData.Caballeros);
+
+        var cantidadDeEnemigos = random.Next(6, 12);
+
+        var enemigos = seiyaData.Enemigos.RandomElement();
+
+        var medios = string.Format(seiyaData.Medios.RandomElement(), cantidadDeEnemigos);
+
+        var caballeroNotDead = seiyaData.Caballeros.RandomElement();
+
+        seiyaData.Caballeros.Remove(caballeroNotDead);
+
+        var caballeroNotDead2 = seiyaData.Caballeros.RandomElement();
+
+        seiyaData.Caballeros.Remove(caballeroNotDead2);
+
+        var caballeroSenseless = seiyaData.Caballeros.RandomElement();
+
+        seiyaData.Caballeros.Remove(caballeroSenseless);
+
+        var razonDelPowerUp = seiyaData.RazonDelPowerUpDeLaVictoria.RandomElement();
+
+        var ayudaDeOnda = seiyaData.ElQueLosAyudaDeOnda.RandomElement();
+
+        var miniBadEvil = seiyaData.ElAnteriorAlBoss.RandomElement();
+
+        //objetivos
+        var lugarConveniente = seiyaData.LugarConveniente.RandomElement();
+        var objetoConveniente = seiyaData.ObjetoConveniente.RandomElement();
+
+        story.Clear();
+
+        story.Add($"En esta épica aventura en {seiyaData.Lugares.RandomElement()}, los {saintCount} Caballeros del Zodíaco, {listaDeCaballeros}, están en apuros!");
+        story.Add($"Saori se encuentra en peligro! {seiyaData.Peligros.RandomElement()} amenaza con matarla, y solo nuestros amigos pueden ayudarla.");
+        story.Add($"Para eso deberán {medios} que son custodiadas por {enemigos}, para poder derrotar a {bigBadEvil}.");
+        story.Add($"Antes de comenzar su viaje, se encuentran con {ayudaDeOnda} y les aconseja como derrotar a {enemigos} con un secreto: {razonDelPowerUp}.");
+        story.Add($"Gracias al consejo de {ayudaDeOnda} logran derrotar al primero de {enemigos}. Aún les queda una gran batalla por delante con los otros {cantidadDeEnemigos - 1} {enemigos}.");
+        story.Add($"Antes de salir {seiyaData.Caballeros.RandomElement()} piensa en {seiyaData.CosaQueExtrania.RandomElement()}, porque {seiyaData.ExtraniaALaCosaPorque.RandomElement()}.");
+        story.Add($"Mientras los demás siguen en camino a su próximo objetivo, {caballeroNotDead} tiene una feroz batalla, y pierde su vida luchando hasta morir. Todos sienten como su cosmos desaparece y se ponen tristes, pero deciden seguir adelante.");
+        story.Add($"Para poder vencer a otro de {enemigos} con quien tenía demasiada diferencia de poder, {caballeroNotDead2} elige quemar su cosmos al máximo y explotar, llevándose consigo a su enemigo.");
+        story.Add($"Se encuentran con {miniBadEvil} justo antes de llegar a {bigBadEvil}, y en una batalla desigual los vence a todos y deja a {caballeroSenseless} privado de sus 5 sentidos!");
+        story.Add($"Cuando todo parecía perdido, {caballeroNotDead} aparece en la batalla! Volvió de la muerte gracias a {seiyaData.RazonDelPowerUpDeLaVictoria.RandomElement()}!");
+        story.Add($"Con una impresionante destreza, {caballeroNotDead} y los demás, unen su fuerza para derrotar a {miniBadEvil} y por fin terminan de {medios}!");
+        story.Add($"La batalla final con {bigBadEvil} está cada vez más cerca!");
+        story.Add($"Despues de derrotar a {miniBadEvil}, el último de {enemigos}, llegan a {lugarConveniente}, donde los espera {objetoConveniente}, que será clave para derrotar a {bigBadEvil}.");
+        story.Add($"Todos comienzan la pelea contra {bigBadEvil} para salvar a Saori! Son superados en la pelea, el cosmos de su enemigo es impresionante. No obstante, no pierden nunca la esperanza, y recuerdan las palabras de {ayudaDeOnda} y queman su cosmos al máximo para lograr la victoria!");
+        story.Add($"Cuando la batalla final aparentaba terminar, {bigBadEvil} revela su verdadero poder, y los caballeros están por ser derrotados, pero aparece {caballeroNotDead2} que se salvó de morir por {seiyaData.RazonDelPowerUpDeLaVictoria.RandomElement()} y le da nueva fuerza a todos con su ardiente cosmos!.");
+        story.Add($"Entre todos, y gracias a que {razonDelPowerUp}, logran usar {objetoConveniente} para derrotar a {bigBadEvil} y {seiyaData.LoQueHaceQueElMaloSeaMalo.RandomElement()} que lo esclavizaba {seiyaData.PierdePorqueLaCausaDeSuMal.RandomElement()}.");
+        story.Add($"Al final Saori sale de peligro, y todos vuelven a su casa, esperando aún más aventuras como ésta...");
+    }
+
+    [System.Serializable]
+    public class SeiyaData
+    {
+        public List<string> Lugares { get; set; }
+        public List<string> Caballeros { get; set; }
+        public List<string> Peligros { get; set; }
+        public List<string> Enemigos { get; set; }
+        public List<string> BigBadEvilGuy { get; set; }
+        public List<string> LoQueHaceQueElMaloSeaMalo { get; set; }
+        public List<string> PierdePorqueLaCausaDeSuMal { get; set; }
+        public List<string> ElAnteriorAlBoss { get; set; }
+        public List<string> Objetivos { get; set; }
+        public List<string> Medios { get; set; }
+        public List<string> LugarConveniente { get; set; }
+        public List<string> ObjetoConveniente { get; set; }
+        public List<long> CaballeroQueMuerePeroNo { get; set; }
+        public List<long> CaballeroQuePierdeLosCincoSentidos { get; set; }
+        public List<string> ElQueLosAyudaDeOnda { get; set; }
+        public List<long> LaKamikazea { get; set; }
+        public List<string> RazonDelPowerUpDeLaVictoria { get; set; }
+        public List<string> CosaQueExtrania { get; set; }
+        public List<string> ExtraniaALaCosaPorque { get; set; }
+    }
+}

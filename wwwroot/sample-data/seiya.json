@@ -1,0 +1,97 @@
+{
+	"lugares":[
+		"Japón",
+		"Grecia",
+		"Siberia",
+		"Asgard"],
+  "caballeros": [
+    "Seiya de Pegaso",
+    "Ikki de Fénix",
+    "Shiryu de Dragón",
+    "Shun de Andrómeda",
+    "Hyoga de Cisne"
+  ],
+  "peligros": [
+    "El robo de la armadura de oro",
+    "La flecha de oro clavada en su pecho",
+    "El derretimiento de los polos",
+    "El secuestro de Poseidón"
+  ],
+  "enemigos": [
+    "los Caballeros Negros",
+    "los Caballeros Dorados",
+    "los Dioses Guerreros",
+    "los Almirantes de Poseidón"
+  ],
+  "bigBadEvilGuy": [
+    "Ikki de Fénix",
+    "el Patriarca Ares",
+    "Saga de Géminis",
+    "Hilda de Polaris"
+  ],
+  "loQueHaceQueElMaloSeaMalo": [
+    "el Anillo Nibelungo",
+    "la doble personalidad que tenía",
+    "su odio absoluto por todos y todo"
+  ],
+  "pierdePorqueLaCausaDeSuMal": [
+    "es destruído en mil pedazos",
+    "se desvanece gracias a la fe y la esperanza",
+    "es cambiado por el poder del amor",
+    "se transforma por el poder de la amistad"
+  ],
+  "elAnteriorAlBoss": [
+    "los Caballeros de Plata",
+    "Siegfried de Dubhe Alfa",
+    "Afrodita de Piscis"
+  ],
+  "objetivos": [
+    "llegar al {bigBadEvil}",
+    "destruir {evilObject}",
+    "rescatar a Atena",
+    "tener todas las partes de la Armadura"
+  ],
+  "medios": [
+    "pasar por las {0} Casas del Santuario",
+    "recolectar los {0} Zafiros de Odín",
+    "destruir los {0} Pilares Marítimos",
+    "recuperar las {0} partes de la Armadura Dorada de Sagitario"
+  ],
+  "lugarConveniente": ["la estatua de Atena", "la estatua de Odín"],
+  "objetoConveniente": ["el escudo de Atena", "la espada de Balmung"],
+  "caballeroQueMuerePeroNo": [1, 2, 3, 4, 5],
+  "caballeroQuePierdeLosCincoSentidos": [0, 1, 2],
+  "elQueLosAyudaDeOnda": [
+    "Ikki de Fénix",
+    "Kiki",
+    "Mu de Aries",
+    "Thor de Phecda Gamma"
+  ],
+  "laKamikazea": [1, 2],
+  "razonDelPowerUpDeLaVictoria": [
+    "el poder de la amistad",
+    "el sacrificio que otros hicieron",
+    "despertar el séptimo sentido",
+    "la sangre de sus amigos",
+    "el poder del amor",
+    "que Atena le habla telepáticamente a su Cosmos",
+    "que simplemente nunca se rinde, y gana por terco",
+    "que a pesar de perder 9 litros de sangre en cada golpe, sigue vivo y su oponente no",
+    "que muere, pero logra revivir más fuerte que antes",
+    "que le da una piña cósmica existencial al su enemigo y hace que se sane de su maldad"
+  ],
+  "cosaQueExtrania": [
+    "su mamá",
+    "su hermana",
+    "su hermano menor",
+    "su novia",
+    "su hermano mayor"
+  ],
+  "extraniaALaCosaPorque": [
+    "murió",
+    "no sabe dónde está",
+    "le recuerda lo importante de seguir adelante",
+    "falleció y no logra superarlo",
+    "le recuerda que siempre se puede mejorar"
+  ]
+}
